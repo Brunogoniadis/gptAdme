@@ -2,15 +2,24 @@ import axios from "axios";
 
 async function fetchData(owner, repo, path, files, fileContents) {
   try {
+    const token =
+      "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";
+
     const fileListResponse = await axios.get(
-      `https://api.github.com/repos/${owner}/${repo}/contents/${path}`
+      `https://api.github.com/repos/${owner}/${repo}/contents/${path}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
     );
+
 
     const filesData = await Promise.all(
       fileListResponse.data.map(async (file) => {
         if (file.type === "file") {
           const ignoreThisExtensions =
-            /\.(jpg|jpeg|png|gif|bmp|svg|log|local|idea|DS_Store|sln|swp|gitignore|eslintrc|cjs|lock|config.js)$/i.test(
+            /\.(jpg|jpeg|png|gif|bmp|svg|log|local|idea|DS_Store|sln|swp|gitignore|eslintrc|cjs|lock|config.js|md)$/i.test(
               file.name
             );
           if (!ignoreThisExtensions) {
@@ -50,15 +59,7 @@ export default async function GitHubRepoScanner(owner, repo) {
   try {
     await fetchData(owner, repo, "", files, fileContents);
 
-      return { files, fileContents };
-      
-
-
-      
-
-
-
-
+    return { files, fileContents };
   } catch (error) {
     console.error("Erro ao buscar o repositório:", error);
     throw error;

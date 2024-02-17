@@ -29,8 +29,6 @@ function App() {
     }
   }
 
-  console.log("fileContents", fileContent);
-  console.log("iaResponse", iaResponse);
 
   const handleUserNameChange = (event) => {
     setUserName(event.target.value);
@@ -42,17 +40,21 @@ function App() {
 
   const handleSubmit = () => {
     fetchData();
-    console.log("Username:", userName);
-    console.log("Repository:", userRepo);
+    
   };
   return (
-    <div>
-      <h1>GitHub Repository Scanner</h1>
+    <div
+      style={{
+        padding:"50px"
+      }}
+    >
+      <h1> FlashME</h1>
+      <p>Github generator IA</p>
       <div
         style={{
           display: "flex",
           flexDirection: "column",
-          width: "500px",
+          width: "300px",
         }}
       >
         <input

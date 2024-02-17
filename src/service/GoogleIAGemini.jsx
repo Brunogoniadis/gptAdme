@@ -10,12 +10,12 @@ export default async function IaFetch(code) {
 
       const prompt = `${code} de forma calma e pausada  Você poderia resumir a funcionalidade principal do codigo acima e criar um readme padrão desse projeto para o github no formato e código md?`;
 
-      console.log("code", prompt);
+      console.log("prompt", prompt);
 
       const result = await model.generateContent(prompt);
       const response = await result.response;
       const text = response.text();
-      console.log(text);
+      console.log("cccccxcccc", text);
 
       return { text };
     }
