@@ -1,76 +1,20 @@
-import { useState } from "react";
-import GitHubRepoScanner from "./service/GitHubRepoScanner";
-import IaFetch from "./service/GoogleIAGemini.jsx";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import HomePage from "./pages/Home/Home";
+import Login from "./pages/Login/Login";
+import GlobalStyles from "./styles/GlobalStyles";
 function App() {
-  const [fileContent, setFileContents] = useState(null);
-
-  const [iaResponse, setIaResponse] = useState({});
-
-  const [userName, setUserName] = useState("");
-  const [userRepo, setUserRepo] = useState("");
-
-  async function fetchData() {
-    try {
-      const { fileContents } = await GitHubRepoScanner(userName, userRepo);
-      setFileContents(fileContents);
-
-      if (fileContents !== null && Object.keys(fileContents).length !== 0) {
-        try {
-          const myJSON = JSON.stringify(fileContents);
-
-          const { text } = await IaFetch(myJSON);
-          setIaResponse(text);
-        } catch (error) {
-          console.error("Erro in IA:", error);
-        }
-      }
-    } catch (error) {
-      console.error("Erro in git:", error);
-    }
-  }
-
-
-  const handleUserNameChange = (event) => {
-    setUserName(event.target.value);
-  };
-
-  const handleUserRepoChange = (event) => {
-    setUserRepo(event.target.value);
-  };
-
-  const handleSubmit = () => {
-    fetchData();
-    
-  };
   return (
-    <div
-      style={{
-        padding:"50px"
-      }}
-    >
-      <h1> FlashME</h1>
-      <p>Github generator IA</p>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          width: "300px",
-        }}
-      >
-        <input
-          placeholder="userName"
-          value={userName}
-          onChange={handleUserNameChange}
-        />
-        <input
-          placeholder="repository"
-          value={userRepo}
-          onChange={handleUserRepoChange}
-        />
-        <button onClick={handleSubmit}>submit</button>
-      </div>
-    </div>
+    <>
+      <Router>
+        <GlobalStyles />
+        <Routes>
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/" element={<Login />} />
+
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </Router>
+    </>
   );
 }
-
 export default App;
