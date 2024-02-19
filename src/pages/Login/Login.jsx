@@ -19,7 +19,7 @@ export const Login = () => {
         <hr className="horizontal-line" />
         <h3> Diga olâ para o robo!</h3>
         <p>🤖 Seu código totalmente explicado pela ia</p>
-        <p>✅ Formato Markdown, compatível com GitHub</p>
+        <p>💅 Formatado em Markdown, compatível com GitHub</p>
         <p>🚀 Rapído e semântico</p>
       </Content>
       <RedirectContent>

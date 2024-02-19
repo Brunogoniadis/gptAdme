@@ -16,7 +16,7 @@ export const Content = styled.div`
   border: 1px solid var(--color-border);
   border-radius: 5px;
 
-  backdrop-filter: blur(25px);
+  background: radial-gradient(at center top, #281a29, #22272e, #22272e);
 
   h2,
   h3,
@@ -55,19 +55,19 @@ export const RedirectContent = styled.div`
     width: 40%;
     height: 80%;
     padding: 18px;
+    box-shadow: 0px 0px 15px -8px var(--color-border);
 
     border: 1px solid var(--color-border);
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* Manter o texto no topo */
-
+    justify-content: flex-start; 
+    
     text-align: center;
     gap: 2vh;
   }
-  Button{
+  Button {
     margin-top: 2vh;
   }
-
 `;
