@@ -1,5 +1,6 @@
 import GitHubRepoScanner from "../../service/GitHubRepoScanner";
 import IaFetch from "../../service/GoogleIAGemini";
+import InputBox from "../../components/Input/InputBox";
 import { useState } from "react";
 
 export const Home = () => {
@@ -47,8 +48,8 @@ export const Home = () => {
         padding: "50px",
       }}
     >
-      <h1> FlashME</h1>
-      <p>Github generator IA</p>
+      <h1>  .</h1>
+      <p>Github Readme generator with IA</p>
       <div
         style={{
           display: "flex",
@@ -56,13 +57,13 @@ export const Home = () => {
           width: "300px",
         }}
       >
-        <input
-          placeholder="userName"
-          value={userName}
-          onChange={handleUserNameChange}
+        <InputBox
+          placeholder="GitHub user name" // Passando placeholder como uma prop
+          value={userName} // Passando o valor do userName como uma prop
+          onChange={handleUserNameChange} // Passando a função de manipulação de mudança como uma prop
         />
-        <input
-          placeholder="repository"
+        <InputBox
+          placeholder="repository name"
           value={userRepo}
           onChange={handleUserRepoChange}
         />

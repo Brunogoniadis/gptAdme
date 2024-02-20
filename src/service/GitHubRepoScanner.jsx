@@ -3,7 +3,7 @@ import axios from "axios";
 async function fetchData(owner, repo, path, files, fileContents) {
   try {
     const token =
-      "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";
+      "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";
 
     const fileListResponse = await axios.get(
       `https://api.github.com/repos/${owner}/${repo}/contents/${path}`,

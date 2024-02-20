@@ -8,7 +8,7 @@ export default async function IaFetch(code) {
     if (code) {
       const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
-      const prompt = `${code} de forma calma e pausada  Você poderia resumir a funcionalidade principal do codigo acima e criar um readme padrão desse projeto para o github no formato e código md?`;
+      const prompt = `${code} de forma calma e pausada  Você poderia resumir a funcionalidade principal do codigo acima e incluir em um readme padrão desse projeto para o github no formato e código md?`;
 
       console.log("prompt", prompt);
 

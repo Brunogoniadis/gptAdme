@@ -13,11 +13,10 @@ export const Content = styled.div`
   gap: 5px;
   padding: 18px;
 
-  border: 1px solid var(--color-border);
   border-radius: 5px;
 
-  background: radial-gradient(at center top, #281a29, #22272e, #22272e);
-
+  background: var(--color-background);
+  
   h2,
   h3,
   h4,
@@ -26,6 +25,12 @@ export const Content = styled.div`
   p,
   strong {
     width: 100%;
+    color: var(--color-text-code);
+  }
+
+  h1 {
+    font-size: 2em;
+    color: var(--color-text-code);
   }
 
   h3 {
@@ -62,8 +67,8 @@ export const RedirectContent = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; 
-    
+    justify-content: flex-start;
+
     text-align: center;
     gap: 2vh;
   }

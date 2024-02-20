@@ -14,7 +14,7 @@ export default createGlobalStyle`
     --color-success: #0969DA;;
     --color-warning: #FBEA85;
     --color-error: #EA524F;
-
+    --color-background-footer:#1c2128;
     font-size: 60%;   
   }
 
